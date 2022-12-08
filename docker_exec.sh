@@ -1,0 +1,1 @@
+sudo docker run -it -p 8080:8080 acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.55 /bin/bash

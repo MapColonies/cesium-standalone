@@ -5,8 +5,16 @@
 replicaCount: 1
 
 image:
-  repository: acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.3
+  repository: acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.55
   pullPolicy: Always
 
 application:
   name: cesium-standalone
+
+route:
+  enabled: true
+  path: /
+  timeout:
+    enabled: false
+    duration: 60s
+  

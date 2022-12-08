@@ -1,1 +1,0 @@
-sudo docker push acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.3
