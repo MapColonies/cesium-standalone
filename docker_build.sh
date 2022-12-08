@@ -1,1 +1,1 @@
-sudo docker build . -t acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.55
+sudo docker build . -t cesium-standalone:1.0.55

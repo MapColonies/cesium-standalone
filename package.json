@@ -147,7 +147,9 @@
     "deploy-status": "gulp deployStatus",
     "deploy-set-version": "gulp deploySetVersion",
     "prettier": "prettier --write \"**/*\"",
-    "prettier-check": "prettier --check \"**/*\""
+    "prettier-check": "prettier --check \"**/*\"",
+    "helm-redeploy": "helm uninstall release && helm install release helm",
+    "helm-deploy": "helm install release helm"
   },
   "engines": {
     "node": ">=14.0.0"

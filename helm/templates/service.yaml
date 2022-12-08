@@ -1,13 +1,32 @@
+{{- $releaseName := .Release.Name -}}
+{{- $chartName := include "cesium-standalone.name" . -}}
+{{- $cloudProviderFlavor := include "cesium-standalone.cloudProviderFlavor" . -}}
+{{- if .Values.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.application.name}}
+  name: {{ $releaseName }}-{{ $chartName }}
   labels:
-    run: cesium-standalone
+    app: {{ $chartName }}
+    component: {{ $chartName }}
+    environment: {{ include "cesium-standalone.environment" . }}
+    release: {{ $releaseName }}
+    {{- include "cesium-standalone.labels" . | nindent 4 }}
 spec:
-  ports:
-  - port: 8080
-    protocol: TCP
-  selector:
-    app: cesium-standalone
+  {{- if eq $cloudProviderFlavor "minikube" }}
   type: NodePort
+  {{- end }}
+  ports:
+    - port: {{ .Values.env.port }}
+      targetPort: {{ .Values.env.targetPort }}
+      protocol: "TCP"
+      name: http
+      {{- if eq $cloudProviderFlavor "minikube" }}
+      nodePort: {{ .Values.nodePort }}
+      {{- end }}
+  selector:
+    app: {{ $chartName }}
+    release: {{ $releaseName }}
+    run: {{ $releaseName }}-{{ $chartName }}
+    {{- include "cesium-standalone.selectorLabels" . | nindent 4 }}
+{{- end }}
