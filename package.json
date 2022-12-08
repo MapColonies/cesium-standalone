@@ -149,7 +149,11 @@
     "prettier": "prettier --write \"**/*\"",
     "prettier-check": "prettier --check \"**/*\"",
     "helm-redeploy": "helm uninstall release && helm install release helm",
-    "helm-deploy": "helm install release helm"
+    "helm-deploy": "helm install release helm",
+    "docker-run": "sudo docker run -it -p 8080:8080 cesium-standalone:1.0.55",
+    "docker-build": "sudo docker build . -t cesium-standalone:1.0.55",
+    "docker-upload": "sudo docker tag cesium-standalone:1.0.55 acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.55 && sudo docker push acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.55"
+
   },
   "engines": {
     "node": ">=14.0.0"
