@@ -5,7 +5,7 @@ WORKDIR /usr/app
 COPY . .
 
 RUN npm install -g gulp
-RUN npm install --production
+RUN npm install
 
 RUN npm run build
 
