@@ -6,16 +6,11 @@ COPY . .
 
 RUN npm install -g gulp
 RUN npm install --production
-RUN npm cache clean --force\
 
 RUN npm run build
 
-# Permissions
-RUN chown -R :root /.npm && chmod -R g=u /.npm
-RUN chown -R :root /usr/app/packages/engine/Build && chmod -R g=u /usr/app/packages/engine/Build
-RUN chown -R :root /usr/app && RUN chmod -R g=u /usr/app
-
-USER user
+RUN mkdir -p /.npm && chown -R :root /.npm && chmod -R g=u /.npm
+RUN chown -R :root /usr/app && chmod -R g=u /usr/app
 
 EXPOSE 8080
 
