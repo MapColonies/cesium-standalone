@@ -23,7 +23,7 @@ caKey: 'ca.crt'
 image:
   repository: cesium-standalone
   pullPolicy: Always
-  tag: 1.0.55
+  tag: 1.0.57
 
 env:
   port: 8080
