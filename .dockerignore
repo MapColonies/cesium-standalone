@@ -2,3 +2,5 @@ npm-debug.log
 ./node_modules
 ./Build
 /travis
+cesium-standalone.tar
+cesium-standalone.zip
