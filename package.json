@@ -51,8 +51,8 @@
     "./Specs/**/*"
   ],
   "dependencies": {
-    "@cesium/engine": "0.1.0",
-    "@cesium/widgets": "0.1.0"
+    "@cesium/engine": "1.0.0",
+    "@cesium/widgets": "1.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.2",
@@ -147,7 +147,13 @@
     "deploy-status": "gulp deployStatus",
     "deploy-set-version": "gulp deploySetVersion",
     "prettier": "prettier --write \"**/*\"",
-    "prettier-check": "prettier --check \"**/*\""
+    "prettier-check": "prettier --check \"**/*\"",
+    "helm-redeploy": "helm uninstall release && helm install release helm",
+    "helm-deploy": "helm install release helm",
+    "docker-run": "sudo docker run -it -p 8080:8080 cesium-standalone:1.0.59",
+    "docker-build": "sudo docker build . -t cesium-standalone:1.0.59",
+    "docker-upload": "sudo docker tag cesium-standalone:1.0.59 acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.59 && sudo docker push acrarolibotnonprod.azurecr.io/cesium-standalone:1.0.59",
+    "docker-save": "sudo docker save -o ./cesium-standalone.tar cesium-standalone:1.0.59"
   },
   "engines": {
     "node": ">=14.0.0"
